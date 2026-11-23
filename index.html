@@ -41,7 +41,7 @@
         <div class="hero-text">
           <h1 class="name reveal" style="--i:1">Greg Pickart</h1>
           <ul class="icons reveal" style="--i:2" aria-label="Contact and profiles">
-            <li><a href="mailto:gregory.pickart@gmail.com" aria-label="Email"><svg aria-hidden="true"><use href="#icon-email"/></svg></a></li>
+            <li><a href="#" data-e="bW9jLmxpYW1nQHRyYWtjaXAueXJvZ2VyZw==" aria-label="Email"><svg aria-hidden="true"><use href="#icon-email"/></svg></a></li>
             <li><a href="https://www.linkedin.com/in/gregpickart/" aria-label="LinkedIn"><svg aria-hidden="true"><use href="#icon-linkedin"/></svg></a></li>
             <li><a href="https://apps.apple.com/us/developer/gregory-pickart/id1558360873" aria-label="Apple App Store"><svg aria-hidden="true"><use href="#icon-apple"/></svg></a></li>
             <li><a href="https://play.google.com/store/apps/dev?id=7365445736653668155" aria-label="Google Play"><svg aria-hidden="true"><use href="#icon-google-play"/></svg></a></li>
@@ -62,5 +62,11 @@
       </section>
     </main>
   </div>
+  <script>
+    // Email is stored reversed + base64-encoded so scrapers can't harvest it.
+    document.querySelectorAll('a[data-e]').forEach(function (a) {
+      a.href = 'mailto:' + atob(a.dataset.e).split('').reverse().join('');
+    });
+  </script>
 </body>
 </html>
